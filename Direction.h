@@ -1,11 +1,11 @@
 #pragma once //bu yapý , bu header dosyasýnýn sadece bir kez dahil edilmesini saðlar. ifndef, define ve endif ile ayný iþlevi görür.
 
 enum class Direction { 
-	Up,
-	Down,
-	Left,
-	Right,
-	None
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+	NONE
 };
  
 

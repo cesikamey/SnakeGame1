@@ -4,11 +4,12 @@
 struct Point {
 	int x;
 	int y;
+	Point() : x(0), y(0) {}           // herhangi bir parametre almayan varsayýlan yapýcý
+	Point(int x, int y) : x(x), y(y) {} // Parametre alan yapýcý, x ve y koordinatlarýný alýr ve atar
+	bool operator==(const Point& other) const {	 //Yýlanýn kendi vücuduna çarpýp çarpmadýðýný anlamak için ve Yem ile yýlanýn ayný pozisyonda olup olmadýðýný kontrol etmek için
+		return x == other.x && y == other.y;		//Bu fonksionn, iki Point nesnesinin x ve y koordinatlarýný karþýlaþtýrýr.
 
-	bool operator==(const Point& other) const {	 //Yýlanýn kendi vücuduna çarpýp çarpmadýðýný anlamak için Yem ile yýlanýn ayný pozisyonda olup olmadýðýný kontrol etmek için
-	return x == other.x && y == other.y;		//Bu fonksiyon, iki Point nesnesinin x ve y koordinatlarýnýn eþit olup olmadýðýný kontrol eder.
-
-	}s	
+	}
 };
 
 // This struct defines a `Point` type that represents a position in a 2D space with `x` and `y` coordinates.
