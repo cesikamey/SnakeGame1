@@ -7,7 +7,7 @@ struct Point {
 	Point() : x(0), y(0) {}           // herhangi bir parametre almayan varsayýlan yapýcý
 	Point(int x, int y) : x(x), y(y) {} // Parametre alan yapýcý, x ve y koordinatlarýný alýr ve atar
 	bool operator==(const Point& other) const {	 //Yýlanýn kendi vücuduna çarpýp çarpmadýðýný anlamak için ve Yem ile yýlanýn ayný pozisyonda olup olmadýðýný kontrol etmek için
-		return x == other.x && y == other.y;		//Bu fonksionn, iki Point nesnesinin x ve y koordinatlarýný karþýlaþtýrýr.
+		return x == other.x && y == other.y;		//Bu fonksionn, iki Point nesnesinin x ve y koordinatlarýný karþýlaþtýrýr. Ve herhangi iki noktayý == operatörüle kullanýrsam bu fonksiyonu kullanacak"operator overloading"
 
 	}
 };

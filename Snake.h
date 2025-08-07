@@ -9,9 +9,10 @@ private:
 	Direction currentDirection; //Yýlanýn hareket yönünü tutar.
     bool growing;
 
+
 public:
     Snake(Point startPosition);
-
+    Snake();
     void move();
     void changeDirection(Direction newDirection);
     void growUp();
@@ -21,5 +22,6 @@ public:
     Point getHead() const;
 	const std::deque<Point>& getBody() const; //bu fonksiyon, yýlanýn gövdesini dýþarýya eriþim için saðlar.
 	Direction getDirection() const; // bu fonksiyon, yýlanýn hareket yönünü dýþarýya eriþim için saðlar.
+    bool isOutOfBounds(int width, int height) const;
 };
 

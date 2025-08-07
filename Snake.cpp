@@ -1,9 +1,9 @@
-#include "Snake.h"
+﻿#include "Snake.h"
 #include "Direction.h"
 
 Snake::Snake(Point startPosition) {
-    body.push_front(startPosition);
-    currentDirection = Direction::RIGHT; //
+    body.push_front(startPosition); 
+    currentDirection = Direction::RIGHT; 
 }
 
 Point Snake::getHead() const {
@@ -11,24 +11,9 @@ Point Snake::getHead() const {
 }
 
 void Snake::move() {
-    Point newHead = getHead();
+    Point nextHead = getNextHeadPosition();
 
-    switch (currentDirection) {
-    case Direction::UP:
-        newHead.y--;
-        break;
-    case Direction::DOWN:
-        newHead.y++;
-        break;
-    case Direction::LEFT:
-        newHead.x--;
-        break;
-    case Direction::RIGHT:
-        newHead.x++;
-        break;
-    }
-
-    body.push_front(newHead);
+    body.push_front(nextHead);
 
     if (!growing)
         body.pop_back();
@@ -51,8 +36,8 @@ void Snake::growUp() {
     growing = true;
 }
 
-bool Snake::isCollision() const {
-    Point head = getHead();
+bool Snake::isCollision() const { //const: Fonksiyonun, sınıf içindeki hiçbir üyeyi değiştirmeyeceğini belirtir (sadece okuma yapar).
+    Point head = getNextHeadPosition();
 
     for (size_t i = 1; i < body.size(); ++i) {
         if (body[i] == head)
@@ -72,9 +57,18 @@ Point Snake::getNextHeadPosition() const {
     return currentHead; // Fallback return  
 }
 const std::deque<Point>& Snake::getBody() const {
-    return body; // Y�lan�n g�vdesini d��ar�ya eri�im i�in sa�lar.
+    return body; // Yılanın gövdesini dışarıya erişim için sağlar.
 }
 void Snake::grow() {
     Point newHead = getNextHeadPosition();
-    body.push_front(newHead);  // Kuyru�u silmeden yeni ba� ekle ? b�y�me
+    body.push_front(newHead);  // Kuyruğu silmeden yeni baş ekle → büyüme
+}
+bool Snake::isOutOfBounds(int width, int height) const {
+    Point head = getHead();
+    return (head.x < 0 || head.y < 0 || head.x >= width || head.y >= height);
+}
+Snake::Snake() {
+    // Başlangıçta yılanın pozisyonunu ortalara koyabiliriz
+    body.push_back(Point(10, 10)); // baş
+    currentDirection = Direction::RIGHT;
 }

@@ -1,11 +1,4 @@
-﻿  Food.cpp
-  GameManager.cpp
+﻿  GameManager.cpp
   main.cpp
-  Snake.cpp
   Generating Code...
-D:\Work\SnakeGame1\SnakeGame1\Point.h(12,1): error C2143: syntax error: missing ';' before '}'
-  (compiling source file 'Snake.cpp')
-  
-D:\Work\SnakeGame1\SnakeGame1\Point.h(11,3): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-  (compiling source file 'Snake.cpp')
-  
+  SnakeGame1.vcxproj -> D:\Work\SnakeGame1\x64\Debug\SnakeGame1.exe
